@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mini Movie</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pilih_genre">Pilih Genre</string>
+    <string name="semua">Semua</string>
+</resources>
