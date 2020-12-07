@@ -25,7 +25,7 @@ class GenresBottomSheet() : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+        viewModel = ViewModelProvider(activity!!).get(MovieViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.bottom_sheet_genres, container, false)
         binding.movieViewModel = viewModel
         binding.lifecycleOwner = this
@@ -40,7 +40,10 @@ class GenresBottomSheet() : BottomSheetDialogFragment() {
     }
 
     private fun initAdapter() {
-        genreAdapter = MovieGenreAdapter(viewModel.genreList.value!!) { genre ->
+        genreAdapter = MovieGenreAdapter(
+            viewModel.genreList.value!!,
+            viewModel.genreModel.value!!
+        ) { genre ->
                 viewModel.genreModel.value = genre
                 if (genre != null) {
                     viewModel.genreId = genre.id.toString()

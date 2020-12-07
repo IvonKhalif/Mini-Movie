@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModelReview"
+            type="com.example.minimovie.features.review.ReviewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_FFFFFF"
+        tools:context=".features.review.ReviewActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_review"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_review" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_error_state"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_warning"
+            android:visibility="@{viewModelReview.isHasReview ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/text_error_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_error_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Belum ada review untuk film ini"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/darker_gray"
+            android:visibility="@{viewModelReview.isHasReview ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_error_state" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

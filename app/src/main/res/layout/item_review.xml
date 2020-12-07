@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="reviewModel"
+            type="com.example.minimovie.repository.review.ResultReviews" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_FFFFFF"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_poster"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            app:imageUrl="@{reviewModel.author_details.avatar_path}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{reviewModel.author_details.username}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black_484848"
+            app:layout_constraintBottom_toTopOf="@id/text_rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_poster"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Vin Diesel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:drawableStart="@drawable/ic_star"
+            android:text="@{reviewModel.author_details.rating + `/10`}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black_484848"
+            app:layout_constraintBottom_toTopOf="@id/text_review"
+            app:layout_constraintStart_toEndOf="@id/image_poster"
+            app:layout_constraintTop_toBottomOf="@id/text_author"
+            tools:text="9/10" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_review"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{reviewModel.content}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_rating"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_see_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/firasans_medium"
+            android:padding="8dp"
+            android:text="Lihat lebih banyak"
+            android:textColor="@color/blue_2196F3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_review" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_see_more" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

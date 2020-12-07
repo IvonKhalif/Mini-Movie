@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".features.movie.detail.MovieDetailActivity"></activity>
+        <activity android:name=".features.review.ReviewActivity"></activity>
+        <activity android:name=".features.youtubeplayer.YoutubePlayerActivity" />
+        <activity android:name=".features.movie.detail.MovieDetailActivity" />
         <activity android:name=".features.movie.list.MovieActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
