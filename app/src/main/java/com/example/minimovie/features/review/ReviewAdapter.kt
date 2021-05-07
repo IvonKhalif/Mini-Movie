@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.minimovie.R
 import com.example.minimovie.databinding.ItemReviewBinding
 import com.example.minimovie.repository.review.ResultReviews
 
@@ -40,14 +41,16 @@ class ReviewAdapter(
                 binding.textSeeMore.visibility = View.VISIBLE
             }
 
-            var isMaxLine = false
+            var isMaxLine = binding.textReview.maxLines == Integer.MAX_VALUE
             binding.textSeeMore.setOnClickListener {
                 if (isMaxLine) {
                     binding.textReview.maxLines = 2
-                    binding.textSeeMore.text = "more"
+                    binding.textSeeMore.text =
+                        binding.root.resources.getString(R.string.see_more_caption)
                 } else {
                     binding.textReview.maxLines = Integer.MAX_VALUE
-                    binding.textSeeMore.text = "less"
+                    binding.textSeeMore.text =
+                        binding.root.resources.getString(R.string.see_less_caption)
                 }
 
                 isMaxLine = !isMaxLine

@@ -6,4 +6,6 @@
     <string name="pilih_genre">Pilih Genre</string>
     <string name="semua">Semua</string>
     <string name="lihat_semua_ulasan">Lihat Semua Ulasan</string>
+    <string name="see_more_caption">Lihat Lebih Banyak</string>
+    <string name="see_less_caption">Lihat Lebih Sedikit</string>
 </resources>

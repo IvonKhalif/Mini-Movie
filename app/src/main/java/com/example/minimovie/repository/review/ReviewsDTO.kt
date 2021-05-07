@@ -28,7 +28,7 @@ data class AuthorDetails(
     val formatterRating
         get() = run {
             if (rating == null) {
-                1.toString()
+                0.toString()
             } else{
                 rating.toString()
             }
